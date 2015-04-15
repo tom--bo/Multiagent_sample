@@ -10,10 +10,12 @@ public class Main {
 	public static final int TURN_NUM = 10;
 	public static final int ADD_TASK_PER_TURN = 3;
 	private static Random random = new Random(1000000009);
+	private static ArrayList<Agent> agents;
+	private static Queue<Task> queue;
 
 	public static void main(String[] args) {
-        List<Agent> agents = new ArrayList<Agent>();
-        Queue<Task> queue = new LinkedList<Task>();
+        agents = new ArrayList<Agent>();
+        queue = new LinkedList<Task>();
 
         // agentの作成
         for(int i = 0; i<LEADER_AGENT_NUM; i++) {
@@ -33,4 +35,11 @@ public class Main {
 		}
 	}
 
+	public static Task getTask() {
+		return queue.poll();
+	}
+	
+	public static ArrayList<Agent> getAgents() {
+		return agents;
+	}
 }
