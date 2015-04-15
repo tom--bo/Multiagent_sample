@@ -1,1 +1,2 @@
 Multiagentなプログラムサンプル
+srcディレクトリでgit initしてしまった。。。
