@@ -5,7 +5,8 @@ import java.util.Queue;
 import java.util.Random;
 
 public class Main {
-	public static final int AGENT_NUM = 10;
+	public static final int LEADER_AGENT_NUM = 10;
+	public static final int MEMBER_AGENT_NUM = 10;
 	public static final int TURN_NUM = 10;
 	public static final int ADD_TASK_PER_TURN = 3;
 	private static Random random = new Random(1000000009);
@@ -15,8 +16,11 @@ public class Main {
         Queue<Task> queue = new LinkedList<Task>();
 
         // agentの作成
-        for(int i = 0; i<AGENT_NUM; i++) {
-        	agents.add(new Agent(random.nextInt(10)+1));
+        for(int i = 0; i<LEADER_AGENT_NUM; i++) {
+        	agents.add(new LeaderAgent(random.nextInt(10)+1));
+		}
+        for(int i = 0; i<MEMBER_AGENT_NUM; i++) {
+        	agents.add(new MemberAgent(random.nextInt(10)+1));
 		}
         // ターンのループ
 		for(int turn = 0; turn < TURN_NUM; turn++) {

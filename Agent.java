@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Agent {
+public abstract class Agent {
 	private static int _id_sequence = 0;
-	private int id;
-	private int ability;
+	protected int id;
+	protected int ability;
 	
 	public Agent(int ability) {
 		this.id = _id_sequence;
@@ -16,4 +16,5 @@ public class Agent {
 		System.out.println("Hello, I'm an agent.id = " + id + "/ ability = " + ability);
 	}
 	
+	public abstract void action();
 }
