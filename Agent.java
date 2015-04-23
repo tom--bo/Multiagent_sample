@@ -10,6 +10,7 @@ public abstract class Agent {
 	protected List<Message> messages;
 	protected static Random random = new Random(10000007);
 	protected double[][] table;
+	protected static final double learnRate = 0.1;
 	
 	public Agent(int ability) {
 		this.id = _id_sequence;
@@ -31,4 +32,5 @@ public abstract class Agent {
 	}
 	
 	public abstract void action();
+	public abstract void feedback(Agent from, Task task, boolean isok);
 }
