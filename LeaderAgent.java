@@ -14,10 +14,24 @@ public class LeaderAgent extends Agent {
 			return;
 		}
 		
-		ArrayList<Agent> agents = Main.getAgents();
-		int tosend = random.nextInt(agents.size());
+		double[] subtable = table[task.getRequire()];
+		double sum = 0.0d;
+		for(double d:subtable) {
+			sum += d;
+		}
 		
-		Agent sendagent = agents.get(tosend);
+		double value = random.nextDouble() * sum;
+		int selected_id = 0;
+		double msum = 0.0d;
+		for(int i=0; i<(Main.LEADER_AGENT_NUM + Main.MEMBER_AGENT_NUM); i++){
+			if(msum < value){
+                selected_id = i;
+                break;
+			}
+			msum += subtable[i];
+		}
+		
+		Agent sendagent = Main.getAgents().get(selected_id);
 		sendagent.addMessage(new Message(this, task));
 	}
 

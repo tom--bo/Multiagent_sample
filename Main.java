@@ -9,6 +9,7 @@ public class Main {
 	public static final int MEMBER_AGENT_NUM = 10;
 	public static final int TURN_NUM = 10;
 	public static final int ADD_TASK_PER_TURN = 5;
+	public static final int TASK_REQUIRE_MAX = 10;
 	private static Random random = new Random(1000000009);
 	private static ArrayList<Agent> agents;
 	private static Queue<Task> queue;
